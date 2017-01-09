@@ -1,30 +1,30 @@
 
-Vue.component('task-list', {
-    // use backticks for multiline strings (ES6)
+Vue.component('message', {
+    props: ['title', 'body'],
+    
+    data() {
+        return {
+            isVisible: true
+        }
+    },
+    
     template: `
-        <ul>
-            <task v-for="task in tasks">{{ task.task }}</task>
-        </ul>
+        <article class="message" v-show="isVisible">
+            <div class="message-header">
+                {{ title }}
+                
+                <button type="button" @click="hideModal">x</button>
+            </div>
+            <div class="message-body">
+                {{ body }}
+            </div>
+        </article>
     `,
     
-    data() {
-        return {
-            tasks: [
-                { task: 'Go to the store', completed: true },
-                { task: 'Go to the email', completed: false }
-            ]
+    methods: {
+        hideModal() {
+            this.isVisible = false;
         }
-    }
-});
-
-Vue.component('task', {
-    template: '<li>{{ message }} - <slot></slot></li>',
-    
-    // there can be multiple components hence data has to be a init function:
-    data() {
-        return {
-            message: 'foobar'
-        };
     }
 });
 
@@ -32,4 +32,5 @@ Vue.component('task', {
 new Vue({
     el: '#root'
 });
+
 
