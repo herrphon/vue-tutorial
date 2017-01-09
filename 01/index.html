@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css"/>
+        <style>
+            body { padding-top: 40px; }
+        </style>
+    </head>
+    <body>
+        <div id="root" class="container">
+            <div>
+                <button v-on:click='toggleLoading'> Click Button A1 </botton>
+                <button @click='toggleLoading'> Click Button A2 </botton>
+            </div>
+            <br>
+            <div>
+                <button v-bind:title='message'> Hover Button B1 </button>
+                <button :title='message'> Hover Button B2 </button>
+            </div>
+            <br>
+
+            <div>
+            All tasks:
+            {{ tasks }}
+            </div>
+            <br>
+
+            <div>
+            Incomplete tasks:
+            {{ incompleteTasks }}
+            </div>
+            <br>
+
+            <div>
+                <h2> All Tasks </h2>
+                <ul>
+                    <li v-for="task in tasks" v-text="task.description"></li>
+                </ul>
+            </div>
+            <br>
+
+    
+            <div>
+                <h2> Incomplete Tasks </h2>
+                <ul>
+                    <li v-for="task in incompleteTasks" v-text="task.description"></li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+
+    webserver:
+        image: abiosoft/caddy
+
+        ports:
+            - 8080:2015
+
+        volumes:
+            - ".:/srv"
+
