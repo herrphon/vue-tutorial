@@ -1,0 +1,4 @@
+alias vue='docker run -it --rm --env "HOME=$HOME" -v "$HOME":"$HOME" -v "$PWD":"$PWD" -w "$PWD" -u "$(id -u):$(id -g)" ebiven/vue-cli vue'
+alias npm='docker run -it --rm --env "HOME=$HOME" -v "$HOME":"$HOME" -v "$PWD":"$PWD" -w "$PWD" -u "$(id -u):$(id -g)" -p 8080:8080 node:slim npm'
+
+

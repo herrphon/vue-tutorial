@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+
+    webserver:
+        image: node:slim
+
+        ports:
+            - 8080:8080
+
+        environment:
+            - "HOME:$HOME"
+
+        volumes:
+            - "$HOME:$HOME"
+            - "$PWD/my-app:$PWD/my-app"
+
+        user: "$UID"
+        working_dir: "$PWD/my-app"
+
+        command: npm run dev
+
+
